@@ -23,9 +23,9 @@ body {
 }
 
 .app-container {
-    max-width: 600px;
+    max-width: 1024px; /* Diperlebar dari 600px menjadi 1024px */
     margin: 0 auto;
-    padding: 16px;
+    padding: 24px;
     min-height: 100vh;
     background-color: var(--bg-main);
 }
@@ -106,9 +106,9 @@ body {
 }
 
 .list-container {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr); /* Tampilan default HP: 1 Baris menurun */
+    gap: 20px;
 }
 
 /* Card Folder & File */
@@ -116,19 +116,25 @@ body {
     background: var(--white);
     border: 1px solid var(--border);
     border-radius: 16px;
-    padding: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Menjaga tombol tetap sejajar di bawah */
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Efek melayang saat kursor diarahkan ke kartu */
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgba(17, 78, 59, 0.15); /* Bayangan hijau elegan */
+    border-color: var(--primary-light);
 }
 
 .card-header {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 12px;
-}
-
-.card-title-group {
-    display: flex;
-    gap: 12px;
+    margin-bottom: 24px; /* Jarak diperbesar sedikit agar lebih rapi */
 }
 
 .icon-wrapper {
@@ -232,4 +238,18 @@ body {
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+}
+
+/* Tablet: Tampilkan 2 Kolom */
+@media (min-width: 640px) {
+    .list-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Desktop: Tampilkan 3 Kolom */
+@media (min-width: 900px) {
+    .list-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }

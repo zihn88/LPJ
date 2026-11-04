@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARSIP LPJ - Arsip Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+            </div>
+            <h1>ARSIP LPJ</h1>
+            <p>Arsip Digital Laporan Pertanggungjawaban</p>
+        </header>
+
+        <!-- View: Daftar Lembaga -->
+        <div id="folder-view" class="view-section active">
+            <div class="section-header">
+                <h2>Daftar Lembaga</h2>
+            </div>
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="search-folder" placeholder="Cari nama lembaga...">
+            </div>
+            <div id="folder-list" class="list-container">
+                <div class="loading">Memuat daftar lembaga...</div>
+            </div>
+        </div>
+
+        <!-- View: Daftar File LPJ -->
+        <div id="file-view" class="view-section hidden">
+            <div class="back-nav" onclick="showFolderView()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg>
+                <span>Kembali ke Daftar Lembaga</span>
+            </div>
+            <div class="section-header">
+                <h2 id="current-folder-name">Nama Lembaga</h2>
+                <p>Daftar dokumen dalam folder Google Drive</p>
+            </div>
+            <div class="search-box">
+                <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <input type="text" id="search-file" placeholder="Cari nama file...">
+            </div>
+            <div id="file-list" class="list-container">
+                <!-- File list items will be injected here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -9,6 +9,7 @@
     --border: #e5e7eb;
 }
 
+/* KOREKSI: Gunakan tanda bintang (*) bukan strip (-) */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -23,7 +24,7 @@ body {
 }
 
 .app-container {
-    max-width: 1024px; /* Diperlebar dari 600px menjadi 1024px */
+    max-width: 1024px;
     margin: 0 auto;
     padding: 24px;
     min-height: 100vh;
@@ -107,11 +108,10 @@ body {
 
 .list-container {
     display: grid;
-    grid-template-columns: repeat(1, 1fr); /* Tampilan default HP: 1 Baris menurun */
+    grid-template-columns: repeat(1, 1fr);
     gap: 20px;
 }
 
-/* Card Folder & File */
 .card {
     background: var(--white);
     border: 1px solid var(--border);
@@ -119,14 +119,13 @@ body {
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Menjaga tombol tetap sejajar di bawah */
+    justify-content: space-between;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
-/* Efek melayang saat kursor diarahkan ke kartu */
 .card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px -8px rgba(17, 78, 59, 0.15); /* Bayangan hijau elegan */
+    box-shadow: 0 12px 24px -8px rgba(17, 78, 59, 0.15);
     border-color: var(--primary-light);
 }
 
@@ -134,11 +133,17 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    margin-bottom: 24px; /* Jarak diperbesar sedikit agar lebih rapi */
+    margin-bottom: 24px;
+}
+
+/* KOREKSI: Class ini wajib ada agar ikon dan teks sejajar menyamping */
+.card-title-group {
+    display: flex;
+    gap: 12px;
 }
 
 .icon-wrapper {
-    color: #d97706; /* Folder color */
+    color: #d97706;
 }
 
 .file-icon {
@@ -240,14 +245,12 @@ body {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Tablet: Tampilkan 2 Kolom */
 @media (min-width: 640px) {
     .list-container {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
-/* Desktop: Tampilkan 3 Kolom */
 @media (min-width: 900px) {
     .list-container {
         grid-template-columns: repeat(3, 1fr);
